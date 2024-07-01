@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@expensive</title>
+    <meta property="og:title" content="expensive">
+    <meta property="og:description" content="⭐">
+    <meta property="og:url" content="https://expensive.wtf">
+    <meta property="og:type" content="website">
+    
+    <!-- Icon for the tab -->
+    <link rel="icon" type="image/png" href="https://imgs.search.brave.com/ECJQ9ta7OIpePCUpw36E7kJK5U8UPTn6o42hplNcp4Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naXRo/dWIuY29tL21lem90/di9kaXNjb3JkLWJh/ZGdlcy9yYXcvbWFp/bi9hc3NldHMvZGlz/Y29yZGJ1Z2h1bnRl/cjIuc3Zn">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+        }
+    
+        #clickPrompt {
+            position: absolute;
+            z-index: 1;
+            font-size: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white; /* Bright white color */
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    
+        #clickPrompt.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+    
+        #mediaLayout {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    
+        .media-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 25px;
+            padding: 20px;
+            color: white; /* Text color */
+        }
+    
+        .media-content img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+    
+        .media-content .text {
+            color: white; /* Text color */
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1.5px solid #ffffff0d; /* Border style */
+            padding-bottom: 10px; /* Adjust padding as needed */
+        }
+    
+        .media-content .badges {
+            margin-left: 10px;
+            display: flex;
+            gap: 5px;
+            position: relative; /* Ensure badges container is relative for absolute positioning */
+        }
+    
+        .badge {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            position: relative; /* Ensure badge is relative for absolute positioning of tooltip */
+            left: -5px; /* Adjust this value to move the badge left */
+        }
+    
+        .badge .tooltip {
+            position: absolute;
+            top: -30px; /* Adjust as needed to position above the badge */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0;
+            backdrop-filter: blur(8px); /* Adjust blur as needed */
+            transition: all 0.3s ease-in-out;
+            z-index: 20; /* Ensure tooltip is above other content */
+        }
+    
+        .badge:hover .tooltip {
+            opacity: 1;
+        }
+    
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+    
+        .social-icons button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    
+        .social-icons button:hover svg {
+            transform: scale(1.1); /* Example of hover effect, adjust as needed */
+        }
+    
+        .social-icons svg {
+            width: 40px; /* Adjust size as needed */
+            height: 40px;
+            fill: #fff; /* Icon color */
+            transition: transform 0.2s ease;
+        }
+    
+        /* Video Background */
+        #videoBackground {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+    </style>    
+</head>
+<body>
+    <div id="clickPrompt">Click Anywhere to Enter</div>
+    <div id="mediaLayout">
+        <video autoplay muted loop id="videoBackground">
+            <source src="https://files.catbox.moe/9ne6nj.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <audio autoplay loop id="audioBackground">
+            <source src="https://files.catbox.moe/9ne6nj.mp4" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+        <div class="media-content">
+            <img src="https://media.discordapp.net/attachments/1254992767638306916/1257191243440586853/IMG_5439.jpg?ex=66838215&is=66823095&hm=ccb03d7b51dde49aacd5a09f9411840836db4b4a8033c77b9207963608d638c9&=&format=webp&width=596&height=656" alt="Profile Picture">
+            <div class="text">
+                body
+                <div class="badges">
+                    <!-- Badge 1 with tooltip (Partner) -->
+                    <div class="badge" data-info="Badge Info 2">
+                        <img src="https://imgs.search.brave.com/a5BIzxzxmJU_UZJXpU0GnMD9y49Ccf3ZGszDv4IAoVw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4z/LmVtb2ppLmdnL2Vt/b2ppcy81NDc3LXBh/cnRuZXJlZC1zZXJ2/ZXItb3duZXIucG5n" alt="Owner Badge" style="width: 20px; height: 20px;">
+                        <div class="tooltip">Partner</div>
+                    </div>
+                    <!-- Badge 2 with tooltip (Staff) -->
+                    <div class="badge" data-info="Staff">
+                        <img src="https://imgs.search.brave.com/j5xXI1q8hSTY3VLywx8tBNSRQQw2KnFjJFpNktUQypk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4z/LmVtb2ppLmdnL2Vt/b2ppcy83ODcxLWRp/c2NvcmQtc3RhZmYu/cG5n" alt="Staff Badge" style="width: 20px; height: 20px;">
+                        <div class="tooltip" style="padding: 6px 12px; background-color: rgba(0, 0, 0, 0.4); color: white;">Staff</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const clickPrompt = document.getElementById('clickPrompt');
+        const mediaLayout = document.getElementById('mediaLayout');
+        const videoBackground = document.getElementById('videoBackground');
+        const audioBackground = document.getElementById('audioBackground');
+
+        clickPrompt.addEventListener('click', () => {
+            clickPrompt.classList.add('hide');
+            mediaLayout.style.display = 'block';
+            videoBackground.play();
+            audioBackground.play();
+        });
+    </script>
+</body>
+</html>
