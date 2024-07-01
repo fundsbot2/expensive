@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rot5</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <style>
+        body {
+            background-color: #101010;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Press Start 2P', cursive;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: blur(5px);
+            transition: filter 1s ease-out;
+            animation: spin 20s linear infinite; /* Adjusted the animation time */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #click-to-enter {
+            font-size: 20px;
+            cursor: pointer;
+            text-align: center;
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #00FF00;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { visibility: hidden; }
+            50% { visibility: visible; }
+        }
+
+        #content {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 3px solid #00FF00;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 0 20px #00FF00;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        #image {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center top;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            filter: brightness(1.2); /* Increased brightness for retro effect */
+            animation: rotateImage 5s infinite linear; /* Rotation animation */
+        }
+
+        @keyframes rotateImage {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #name {
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        #links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #links a {
+            display: flex;
+            align-items: center;
+            color: #00FFFF;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 2px solid #00FFFF;
+        }
+
+        #links a:hover {
+            background-color: #00FFFF;
+            color: #101010;
+            transform: translateX(2px) translateY(-2px);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    </style>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="rot5" />
+    <meta property="og:description" content="rot5 winning." />
+    <meta property="og:url" content="https://www.rot5.lol" />
+    <meta property="og:image" content="rot5.lol/image1">
+</head>
+
+<body>
+    <div id="background">
+        <video autoplay loop muted playsinline>
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="content">
+        <div id="image" style="background-image: url('https://rot5.lol/swaggy.png');"></div>
+        <div id="name">rot5</div>
+        <div id="links">
+            <a href="https://www.soundcloud.com/rot5" target="_blank">
+                <img class="icon" src="https://www.rot5.lol/soundcloud.jpg" alt="Soundcloud Icon">
+                Soundcloud
+            </a>
+            <a href="https://www.roblox.com/users/4362244059/profile" target="_blank">
+                <img class="icon" src="https://www.rot5.lol/roblox.jpg" alt="Roblox Icon">
+                Roblox
+            </a>
+            <a href="https://discord.com/users/312331061394931714" target="_blank">
+                <img class="icon" src="https://www.rot5.lol/discord.jpg" alt="Discord Icon">
+                Discord
+            </a>
+            <a href="https://www.shklurb.lol/" target="_blank">
+                <img class="icon" src="https://www.rot5.lol/shklurb.png" alt="Other Website Icon">
+                Other Website
+            </a>
+        </div>
+    </div>
+    <div id="click-to-enter" onclick="showContent()">Click to enter</div>
+
+    <script>
+        function showContent() {
+            document.getElementById('background').style.filter = 'blur(0)';
+            document.getElementById('background').style.transition = 'filter 1s ease-out';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('click-to-enter').style.display = 'none';
+            document.getElementById('backgroundMusic').play();
+        }
+
+        document.getElementById('backgroundMusic').addEventListener('ended', function () {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+    </script>
+    <audio id="backgroundMusic" autoplay>
+        <source id="audioSource" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <a id="audioLink" href="https://rot5.lol/swag3.mp3" style="display: none;">Play audio</a>
+
+    <script>
+        var audio = document.getElementById('backgroundMusic');
+        var audioSource = document.getElementById('audioSource');
+        var audioLink = document.getElementById('audioLink');
+
+        // Set the source of the audio element
+        audioSource.src = audioLink.href;
+    </script>
+</body>
+
+</html>
